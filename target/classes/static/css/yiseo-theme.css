@@ -1,0 +1,382 @@
+/*
+ * [이서 찐 스타일 - yiseo-theme.css (v5 - "구매" 스타일 통합본! 💖)]
+ * - [수정] 툴바(Toolbar) 스타일을 v4에서 가져와 100% 유지!
+ * - [추가!] "구매(Purchase)" 5개 파일이 사용하던 "product-form.css"의
+ * 모든 스타일(.form-container, .list-table, .detail-table 등)을
+ * 이 파일에 "찐 테마"로 싹! 다! 추가했어!
+ * - [결론] 이 파일 하나로 "상품"과 "구매" 페이지 모두를 커버해! 💖
+ */
+
+/* ======= [1] CSS 변수 정의 (이서가 정해준 "찐 테마"!) ======= */
+:root {
+    --font-serif: "Playfair Display", serif;
+    --font-sans: "Noto Sans KR", sans-serif;
+    --brand-color: #B36A64;
+    --focus-color-border: #E8B2AB;
+    --focus-color-shadow: #F9E5DF;
+    --border-color-light: #EECBC4;
+    --text-main: #5B6775;
+    --text-subtle: #BABECB;
+    --layout-border-color: #eee;
+}
+
+/* ======= [2] 글로벌 스타일 (공통!) ======= */
+body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: #fcfcfc;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+a {
+    text-decoration: none;
+    color: var(--brand-color); /* 링크색 기본 지정 */
+}
+a:hover {
+    color: var(--brand-color);
+    opacity: 0.8;
+}
+
+/* ======= [3] 툴바(Toolbar) 스타일 ======= */
+.yiseo-navbar.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid var(--border-color-light);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.95rem;
+}
+.yiseo-navbar .navbar-brand {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-main);
+}
+.yiseo-navbar .nav-link {
+    color: var(--text-main);
+}
+.yiseo-navbar .nav-link:hover,
+.yiseo-navbar .nav-link:focus {
+    color: var(--brand-color);
+}
+.yiseo-navbar .dropdown-menu {
+    border-color: var(--border-color-light);
+    font-size: 0.95rem;
+}
+.btn-brand-outline {
+    padding: 0.375rem 1rem;
+    border: 1px solid var(--brand-color);
+    color: var(--brand-color);
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.btn-brand-outline:hover {
+    background-color: var(--brand-color);
+    color: #fff;
+}
+
+/* ======= [4] 공통 컴포넌트 (폼, 버튼, 페이지네이션) ======= */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--focus-color-border);
+    box-shadow: 0 0 0 0.25rem var(--focus-color-shadow);
+}
+.btn-brand {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: #fff;
+}
+.btn-brand:hover {
+    opacity: 0.85; 
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: #fff;
+}
+.btn-subtle {
+    background-color: #fff;
+    border-color: var(--border-color-light);
+    color: var(--text-main); 
+}
+.btn-subtle:hover {
+    background-color: #f7f7f7;
+    color: var(--brand-color); 
+}
+.btn-subtle.active {
+    background-color: var(--text-main); 
+    border-color: var(--text-main);
+    color: #fff;
+}
+.pagination .page-item.active .page-link {
+    background-color: var(--brand-color);
+    border-color: var(--brand-color);
+    color: #fff;
+}
+.pagination .page-link {
+    color: var(--brand-color);
+}
+.pagination .page-link:hover {
+    color: var(--brand-color);
+    opacity: 0.7;
+}
+
+/* ======= [5] "상품(Product)" 페이지 전용 스타일 ======= */
+/* (listProduct.jsp가 사용) */
+.page-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 24px;
+}
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--layout-border-color); 
+}
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+.product-list-table .product-item-table {
+    cursor: pointer;
+    transition: background-color 0.15s;
+    vertical-align: middle;
+}
+.product-list-table .product-item-table:hover {
+    background-color: #fafafa;
+}
+.product-list-table .thumb {
+    width: 72px;  
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--layout-border-color); 
+}
+.prod-name a { 
+    color: var(--text-main); 
+    font-weight: 600; 
+}
+.prod-name a:hover { color: var(--brand-color); } 
+.prod-detail { 
+    color: var(--text-subtle); 
+    font-size: 0.9rem; 
+}
+.status-pill {
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color-light); 
+    background: #fff;
+    color: var(--text-subtle); 
+}
+.status-sold {
+    background: var(--focus-color-shadow); 
+    border-color: var(--border-color-light); 
+    color: var(--brand-color); 
+}
+.price-common { font-weight: 600; }
+.product-list-grid .grid-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-list-grid .grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+.product-list-grid .product-item-grid {
+    display: block;
+    border: 1px solid var(--layout-border-color); 
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    text-decoration: none;
+}
+.product-list-grid .thumb-wrap {
+    position: relative;
+}
+.product-list-grid .thumb-wrap .thumb {
+    width: 100%; 
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+.product-list-grid .status-pill-grid {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 0.8rem;
+}
+.product-list-grid .product-item-grid .info .name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-main); 
+    transition: color 0.2s;
+}
+.product-list-grid .product-item-grid .info .price {
+    color: var(--text-main); 
+}
+.product-list-grid .product-item-grid:hover .info .name {
+    color: var(--brand-color); 
+}
+.product-popover {
+    display: none;
+    position: absolute;
+    width: 320px;
+    padding: 20px;
+    background: #fff;
+    border: 2px solid var(--brand-color); 
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+    z-index: 1050;
+    font-size: 0.9rem;
+}
+.product-popover h4 {
+    margin: 0 0 15px;
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--layout-border-color); 
+    padding-bottom: 10px;
+}
+.product-popover p { margin: 5px 0; color: var(--text-subtle); } 
+.product-popover .price { 
+    font-weight: bold; 
+    color: var(--brand-color); 
+}
+.infinite-loading {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-subtle); 
+    padding: 20px 0 40px;
+    display: none;
+}
+#scrollSentinel {
+    width: 100%;
+    height: 40px;
+}
+
+/* ======= [6] "구매(Purchase)" 페이지 전용 스타일 (신규 추가!) ======= */
+/* (addPurchaseView.jsp, getPurchase.jsp 등이 사용) */
+
+/* .prod-wrap, .page-title 을 BS5 스타일로 대체함 */
+.purchase-prod-info {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--layout-border-color);
+    padding: 1.5rem;
+    border-radius: 0.375rem;
+    background: #fff;
+}
+.purchase-prod-info img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 0.375rem;
+}
+.purchase-prod-info .prod-name {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--text-main);
+}
+.purchase-prod-info .prod-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--brand-color);
+    margin-bottom: 0.5rem;
+}
+
+/* '구매 완료' 페이지용 테이블 (addPurchase.jsp) */
+.purchase-confirmation-table {
+    font-size: 1rem;
+}
+.purchase-confirmation-table th {
+    width: 150px;
+    color: var(--text-subtle);
+    font-weight: normal;
+}
+
+/* '구매 상세' 페이지용 테이블 (getPurchase.jsp) */
+.detail-table th {
+    width: 180px;
+    background-color: #fcfcfc;
+    color: var(--text-main);
+    font-weight: 600;
+}
+.detail-table .code-emphasis {
+    color: var(--brand-color);
+    font-weight: 600;
+}
+
+/* '구매 목록' 페이지용 테이블 (listPurchase.jsp) */
+.list-table th {
+    background-color: #fcfcfc;
+}
+.list-table .muted {
+    color: var(--text-subtle);
+    font-size: 0.85rem;
+}
+
+/* '구매 목록' 페이지용 페이지네이션 (BS5 .pagination 이랑 겹침!) */
+/* .pagination 클래스 이름을 page-navigation으로 변경함! */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+.page-navigation a {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: 0.25rem;
+    color: var(--brand-color);
+}
+.page-navigation a:hover {
+    background-color: var(--focus-color-shadow);
+    opacity: 1;
+}
+.page-navigation strong {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--brand-color);
+    background-color: var(--brand-color);
+    color: #fff;
+    border-radius: 0.25rem;
+}
+
+/* '구매하기/수정' 폼 (addPurchaseView.jsp, updatePurchase.jsp) */
+.form-container {
+    background: #fff;
+    border: 1px solid var(--layout-border-color);
+    padding: 2rem;
+    border-radius: 0.375rem;
+}
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.calendar-icon {
+    cursor: pointer;
+}
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* '구매 완료' 페이지용 버튼 (addPurchase.jsp) */
+.link-group {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}

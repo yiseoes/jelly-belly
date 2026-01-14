@@ -1,0 +1,828 @@
+/*
+ * Jelly Belly - Candy Shop Theme
+ * A cute, whimsical pastel candy shop design
+ */
+
+/* Google Fonts Import - 폰트 강제 로드 */
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Jua&family=Pacifico&family=Noto+Sans+KR:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   CSS Variables - Candy Shop Palette
+======================================== */
+:root {
+    /* Primary Colors - Sweet Pastels */
+    --brand-color: #FF6B9D;        /* Candy Pink */
+    --brand-light: #FFB3C6;        /* Light Pink */
+    --brand-dark: #E91E63;         /* Deep Pink */
+
+    /* Accent Colors */
+    --accent-mint: #7FDBCA;        /* Mint Green */
+    --accent-lemon: #FFF176;       /* Lemon Yellow */
+    --accent-lavender: #CE93D8;    /* Lavender */
+    --accent-peach: #FFAB91;       /* Peach */
+    --accent-sky: #81D4FA;         /* Sky Blue */
+
+    /* Background Colors */
+    --bg-cream: #FFF8F0;           /* Cream */
+    --bg-pink: #FFF0F5;            /* Lavender Blush */
+    --bg-white: #FFFFFF;
+
+    /* Text Colors */
+    --text-main: #5D4E60;          /* Plum Gray */
+    --text-subtle: #9E8AA0;        /* Muted Purple */
+    --text-light: #C4B7C5;
+
+    /* Border Colors */
+    --border-color: #F5E1E9;       /* Soft Pink Border */
+    --border-color-light: #FCF0F4;
+
+    /* Fonts */
+    --font-display: 'Jua', 'Pacifico', cursive;
+    --font-serif: 'Gowun Batang', 'Playfair Display', serif;
+    --font-sans: 'Noto Sans KR', sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 15px rgba(255, 107, 157, 0.15);
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   Base Styles
+======================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-pink) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--brand-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--brand-dark);
+}
+
+/* ========================================
+   Navbar - Candy Navigation
+======================================== */
+.yiseo-navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--border-color);
+    padding: 0.8rem 0;
+    box-shadow: var(--shadow-soft);
+}
+
+.yiseo-navbar .navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8rem;
+    color: var(--brand-color) !important;
+    text-shadow: 2px 2px 0 var(--brand-light);
+    letter-spacing: 1px;
+}
+
+.yiseo-navbar .navbar-brand:hover {
+    color: var(--brand-dark) !important;
+    transform: scale(1.02);
+}
+
+.yiseo-navbar .nav-link {
+    color: var(--text-main) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.yiseo-navbar .nav-link:hover {
+    background-color: var(--bg-pink);
+    color: var(--brand-color) !important;
+}
+
+.yiseo-navbar .dropdown-menu {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    padding: 0.5rem;
+}
+
+.yiseo-navbar .dropdown-item {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    color: var(--text-main);
+}
+
+.yiseo-navbar .dropdown-item:hover {
+    background-color: var(--bg-pink);
+    color: var(--brand-color);
+}
+
+/* ========================================
+   Page Container
+======================================== */
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* ========================================
+   Page Header
+======================================== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--border-color);
+}
+
+.page-header h1 {
+    font-family: 'Pacifico', 'Jua', cursive !important;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--brand-color);
+    margin: 0;
+    position: relative;
+    text-shadow: 1px 1px 0 var(--brand-light);
+}
+
+.page-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-color), var(--accent-peach));
+    border-radius: 2px;
+}
+
+/* 서브타이틀 (한글 설명) - 작게! */
+.page-header .subtitle {
+    font-family: 'Jua', sans-serif !important;
+    font-size: 0.5em;
+    font-weight: 400;
+    color: var(--text-subtle);
+    margin-left: 0.6rem;
+    vertical-align: middle;
+}
+
+/* ========================================
+   Buttons
+======================================== */
+.btn-brand {
+    background: linear-gradient(135deg, var(--brand-color), var(--brand-dark));
+    border: none;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.btn-brand:hover {
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand-color));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+    color: white;
+}
+
+.btn-brand-outline {
+    background: transparent;
+    border: 2px solid var(--brand-color);
+    color: var(--brand-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-brand-outline:hover {
+    background: var(--brand-color);
+    color: white;
+}
+
+.btn-subtle {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-subtle:hover {
+    background: var(--bg-pink);
+    border-color: var(--brand-light);
+}
+
+.btn-subtle.active {
+    background: var(--brand-light);
+    border-color: var(--brand-color);
+    color: var(--brand-dark);
+}
+
+/* ========================================
+   Cards & Product Items
+======================================== */
+.product-card,
+.product-item-grid {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-card);
+    display: block;
+}
+
+.product-card:hover,
+.product-item-grid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.2);
+}
+
+.product-item-grid .thumb-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--bg-cream);
+}
+
+.product-item-grid .thumb-wrap img.thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-item-grid:hover .thumb-wrap img.thumb {
+    transform: scale(1.05);
+}
+
+.product-item-grid .info {
+    padding: 1rem;
+}
+
+.product-item-grid .info .name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-item-grid .info .price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+}
+
+/* Status Pills */
+.status-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--accent-mint);
+    color: #1B5E20;
+}
+
+.status-pill.status-sold {
+    background: var(--text-light);
+    color: var(--text-main);
+}
+
+.status-pill-grid {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   Tables
+======================================== */
+.product-list-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.product-list-table thead {
+    background: linear-gradient(135deg, var(--bg-pink), var(--bg-cream));
+}
+
+.product-list-table th {
+    font-family: 'Jua', sans-serif !important;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--brand-color);
+    border-bottom: 2px solid var(--border-color) !important;
+    padding: 1rem 0.75rem !important;
+}
+
+.product-list-table tbody tr {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.product-list-table tbody tr:hover {
+    background-color: var(--bg-pink);
+}
+
+.product-list-table td {
+    padding: 0.75rem !important;
+    vertical-align: middle;
+    border-color: var(--border-color-light) !important;
+}
+
+.product-list-table .thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.product-list-table .prod-name a {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.product-list-table .prod-name a:hover {
+    color: var(--brand-color);
+}
+
+.product-list-table .prod-detail {
+    font-size: 0.85rem;
+    color: var(--text-subtle);
+    margin-top: 0.25rem;
+}
+
+/* ========================================
+   Forms
+======================================== */
+.form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+}
+
+.form-select {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+}
+
+.form-select:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+}
+
+.form-label,
+.col-form-label {
+    font-family: 'Jua', sans-serif !important;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--brand-color);
+    margin-bottom: 0.5rem;
+}
+
+.required-mark {
+    color: var(--brand-color);
+}
+
+/* ========================================
+   Price Styling
+======================================== */
+.price-common {
+    font-weight: 700;
+    color: var(--brand-dark);
+}
+
+/* ========================================
+   Grid Cards
+======================================== */
+.grid-card {
+    padding: 0;
+}
+
+.product-list-grid {
+    margin: 0 -0.5rem;
+}
+
+.product-list-grid > .grid-card {
+    padding: 0.5rem;
+}
+
+/* ========================================
+   Carousel - Hero Section
+======================================== */
+.hero-carousel {
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.hero-carousel .carousel-item {
+    background: linear-gradient(135deg, var(--bg-pink), var(--bg-cream));
+}
+
+.hero-carousel .carousel-item img {
+    opacity: 0.95;
+}
+
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    margin: 0 1rem;
+}
+
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+    filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(300deg);
+}
+
+.hero-carousel .carousel-indicators button {
+    background-color: var(--brand-color);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+
+/* ========================================
+   Pagination
+======================================== */
+.pagination .page-link {
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    border-radius: 8px;
+    margin: 0 3px;
+    padding: 0.5rem 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.pagination .page-link:hover {
+    background: var(--bg-pink);
+    border-color: var(--brand-light);
+    color: var(--brand-color);
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--brand-color);
+    border-color: var(--brand-color);
+    color: white;
+}
+
+/* ========================================
+   View Switcher
+======================================== */
+.view-switcher {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.view-switcher .btn {
+    padding: 0.4rem 1rem;
+}
+
+/* ========================================
+   Infinite Scroll & Loading
+======================================== */
+.infinite-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-subtle);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   Popover
+======================================== */
+.product-popover {
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadow-soft);
+    max-width: 300px;
+    display: none;
+}
+
+.product-popover h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.product-popover .price {
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+/* ========================================
+   Image Preview
+======================================== */
+.image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    object-fit: cover;
+}
+
+/* ========================================
+   Transaction Toolbar
+======================================== */
+.tran-toolbar {
+    margin-top: 0.5rem;
+}
+
+.tran-toolbar .tran-btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   Responsive
+======================================== */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1rem;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .yiseo-navbar .navbar-brand {
+        font-size: 1.4rem;
+    }
+
+    .form-label,
+    .col-form-label {
+        font-size: 0.95rem;
+    }
+
+    .product-list-table th {
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   Detail Page Meta Table
+======================================== */
+.detail-meta-table th {
+    font-family: 'Jua', sans-serif !important;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--brand-color);
+}
+
+/* ========================================
+   Section Titles (for consistency)
+======================================== */
+.section-title,
+h2.section-title,
+h3.section-title {
+    font-family: var(--font-display);
+    color: var(--brand-color);
+    text-shadow: 1px 1px 0 var(--brand-light);
+}
+
+/* ========================================
+   Purchase Page Styles
+======================================== */
+.purchase-prod-info {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-card);
+}
+
+.purchase-prod-info img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.purchase-prod-info .prod-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.purchase-prod-info .prod-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.purchase-prod-info .prod-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+    margin-bottom: 0.5rem;
+}
+
+.form-container {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow-card);
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calendar-icon {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.calendar-icon:hover {
+    opacity: 1;
+}
+
+/* ========================================
+   List Table (General)
+======================================== */
+.list-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.list-table thead {
+    background: linear-gradient(135deg, var(--bg-pink), var(--bg-cream));
+}
+
+.list-table th {
+    font-family: 'Jua', sans-serif !important;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--brand-color);
+    border-bottom: 2px solid var(--border-color) !important;
+    padding: 1rem 0.75rem !important;
+}
+
+.list-table tbody tr {
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.list-table tbody tr:hover {
+    background-color: var(--bg-pink);
+}
+
+.list-table td {
+    padding: 0.75rem !important;
+    vertical-align: middle;
+    border-color: var(--border-color-light) !important;
+}
+
+.list-table a {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.list-table a:hover {
+    color: var(--brand-color);
+}
+
+/* ========================================
+   Detail Table (General)
+======================================== */
+.detail-table {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.detail-table th {
+    font-family: 'Jua', sans-serif !important;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--brand-color);
+    background: var(--bg-pink);
+    width: 150px;
+    padding: 1rem !important;
+    border-color: var(--border-color) !important;
+}
+
+.detail-table td {
+    font-family: var(--font-serif);
+    padding: 1rem !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main);
+}
+
+/* ========================================
+   Page Navigation
+======================================== */
+.page-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.page-navigation a {
+    display: inline-block;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.page-navigation a:hover {
+    background: var(--bg-pink);
+    border-color: var(--brand-light);
+    color: var(--brand-color);
+}
+
+.page-navigation strong {
+    display: inline-block;
+    padding: 0.5rem 0.85rem;
+    background: var(--brand-color);
+    border: 1px solid var(--brand-color);
+    border-radius: 8px;
+    color: white;
+}
+
+/* ========================================
+   Decorative Elements
+======================================== */
+/* Candy dots pattern background */
+.candy-pattern {
+    background-image:
+        radial-gradient(circle at 20% 80%, var(--accent-mint) 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, var(--accent-peach) 2px, transparent 2px),
+        radial-gradient(circle at 40% 40%, var(--accent-lemon) 2px, transparent 2px),
+        radial-gradient(circle at 60% 60%, var(--accent-lavender) 2px, transparent 2px);
+    background-size: 100px 100px;
+}
