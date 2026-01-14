@@ -587,6 +587,32 @@ public String addPurchase(@RequestParam int prodNo,
 | **구매 상세** | purchase/getPurchase.jsp | 주문 정보 확인 |
 | **구매 목록** | purchase/listPurchase.jsp | 내 주문 내역 |
 
+### 스크린샷
+
+| 메인 페이지 | 로그인 |
+|:-----------:|:------:|
+| ![메인](screenshots/main.JPG) | ![로그인](screenshots/login.JPG) |
+
+| 상품 목록 | 상품 목록 (그리드) |
+|:---------:|:-----------------:|
+| ![상품목록](screenshots/productlist.JPG) | ![그리드](screenshots/grid.JPG) |
+
+| 회원가입 | 마이페이지 |
+|:--------:|:----------:|
+| ![회원가입](screenshots/adduser.JPG) | ![마이페이지](screenshots/mypage.JPG) |
+
+| 상품 등록 | 구매하기 |
+|:---------:|:--------:|
+| ![상품등록](screenshots/addproduct.JPG) | ![구매하기](screenshots/addpurchase.JPG) |
+
+| 구매 목록 | 구매 상세 |
+|:---------:|:---------:|
+| ![구매목록](screenshots/purchaselist.JPG) | ![구매상세](screenshots/purchasedetail.JPG) |
+
+| 회원 목록 (관리자) | 회원 상세 |
+|:------------------:|:---------:|
+| ![회원목록](screenshots/userlist.JPG) | ![회원상세](screenshots/userdetail.JPG) |
+
 ---
 
 ## 실행 방법
